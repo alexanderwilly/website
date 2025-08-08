@@ -3,6 +3,8 @@ import {Link, useNavigate} from "react-router-dom";
 
 import Navbar from "../components/Navbar";
 
+import heroImage from "../media/home_pic.png";
+
 import './styles/Home.css';
 
 function Home(){
@@ -13,13 +15,26 @@ function Home(){
     }, []);
 
     return(
-        <main>
+        <main id ="home">
             <Navbar />
-            <h1>Welcome to my website</h1>
-            <p>This is a simple website built with React.</p>
-            <p>Feel free to explore and learn more about my projects.</p>
-            <p>Thank you for visiting!</p>
-            <Link to="/projects">View My Projects</Link>
+            <section className = "hero">
+                <content className = "hero-content">
+                    <img src = {heroImage} alt = "Hero" id = "hero-image" />
+                </content>
+                <content className = "hero-content">
+                    <div className = "hero-content-container"> 
+                        <h5 className = "hero-content-container-top-text">ALEXANDER WILLY JOHAN</h5>
+                        <h1 className = "hero-content-container-title">Welcome!</h1>
+                        <h1 className = "hero-content-container-title">I'm <span>Alexander Willy</span></h1>
+                    </div>
+                    <div className = "hero-button-container">
+                        <button className = "hero-content-container-button" onClick = {() => navigate('/projects')}>
+                            <span>Let's Connect</span>
+                        </button>
+                    </div>
+                </content>
+
+            </section>
         </main>
     );
 }

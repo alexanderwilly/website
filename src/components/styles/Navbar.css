@@ -8,7 +8,9 @@
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
-    background-color: #001d3d;
+    background-color: #ecf0f3;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
 }
 
 
@@ -24,16 +26,15 @@
 
 .navbar a{
     text-decoration: none;
-    color: white;
+    color: #162227;
     font-size: 1.25rem;
-    font-weight: 300;
+    font-weight: 400;
     margin-left: 24px;
     transition: all 0.5s ease;
 }
 
 .navbar a:hover{
-    border-bottom: 1px solid white;
-    color: white;
+    color: #1460f2;
 }
 
 
@@ -60,7 +61,7 @@
     height: 100vh;
     width: 100%;
     z-index: 1000;
-    background-color: #001d3d;
+    background-color: #ecf0f3; 
     box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
     display: none;
     flex-direction: column;
@@ -83,9 +84,9 @@
 
 
 .sidebar-link a{
-    color: white;
+    color: #162227;
     font-size: 1.25rem;
-    font-weight: 300;
+    font-weight: 400;
     text-align: center;
     width: 100%;
     transition: all 0.3s ease;
