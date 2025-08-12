@@ -6,3 +6,8 @@
   scroll-behavior: smooth;
   font-family: "Roboto Slab", sans-serif;
 }
+.toast-container .Toastify__toast{
+  margin: 16px 0;
+  width: 80vw;
+  padding: 18px;
+}

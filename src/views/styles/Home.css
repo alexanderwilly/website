@@ -97,3 +97,95 @@
 .hero-content-container-button:hover{
     background-color: #0f4bbf;
 }
+
+/* Nest Hub Max */
+
+/* (Asus Zenbook Fold, Surface Pro 7, iPad Pro, iPad Air) still have UI issue */
+
+/* (Nest Hub, Surface Duo, Surface Pro 7) and below */
+@media (max-width: 1280px){
+  #home{
+    padding: 128px 0;
+  }
+
+  .hero{
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .hero-content{
+    width: 100%;
+  }
+
+  #hero-image{
+    height: 75vw;
+  }
+
+  .hero-content{
+    text-align: center;
+  }
+
+  .hero-content-container{
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero-content-container-top-text{
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+  }
+
+  .hero-content-container-title{
+    font-size: 4.5rem;
+  }
+
+
+  .hero-button-container{
+    align-items: center;
+  }
+
+  .hero-content-container-button{
+    font-size: 1.75rem;
+  }
+  
+}
+
+@media (max-width: 768px){
+
+  .hero-content-container-title{
+    font-size: 3rem;
+  }
+
+  .hero-content-container-button{
+    font-size: 1.25rem;
+  }
+
+}
+
+@media (max-width: 480px){
+  #hero-image{
+    height: 45vh;
+  }
+
+  .hero-content{
+    gap: 24px;
+  }
+
+  .hero-content-container-top-text{
+    font-size: 0.75rem;
+    letter-spacing: 0;
+  }
+
+  .hero-content-container-title{
+    font-size: 2rem;
+  }
+
+  .hero-content-container-button{
+    font-size: 1rem;
+    padding: 12px 24px;
+  }
+
+}
+
