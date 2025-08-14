@@ -98,6 +98,10 @@
     background-color: #0f4bbf;
 }
 
+.hero-content-container-button:active{
+    transform: scale(0.95);
+}
+
 /* Nest Hub Max */
 
 /* (Asus Zenbook Fold, Surface Pro 7, iPad Pro, iPad Air) still have UI issue */
