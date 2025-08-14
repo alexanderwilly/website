@@ -33,7 +33,7 @@ function Home(){
                         <h1 className = "hero-content-container-title">I'm <span>{info.display_name == null ? "DISPLAY NAME" : info.display_name }</span></h1>
                     </div>
                     <div className = "hero-button-container">
-                        <button className = "hero-content-container-button" onClick = {() => navigate('/projects')}>
+                        <button className = "hero-content-container-button" onClick = {() => {window.location.href = info.contacts[1].contact_value}}>
                             <span>Let's Connect</span>
                         </button>
                     </div>
