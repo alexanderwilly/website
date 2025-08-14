@@ -3,13 +3,17 @@ import {Link, useNavigate} from "react-router-dom";
 
 import Navbar from "../components/Navbar";
 
+import display_image from "../media/home_pic.png"
 import info from "../media/input.json"
-
 
 import './styles/Home.css';
 
 function Home(){
     const navigate = useNavigate();
+
+    const home_image_maps = {
+        "display_image":display_image
+    }
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -20,7 +24,7 @@ function Home(){
             <Navbar />
             <section className = "hero">
                 <article className = "hero-content">
-                    <img src = {info.display_image} alt = "Hero" id = "hero-image" />
+                    <img src = {home_image_maps[info.display_image]} alt = "Hero" id = "hero-image" />
                 </article>
                 <article className = "hero-content">
                     <div className = "hero-content-container"> 
