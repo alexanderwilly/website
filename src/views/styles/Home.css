@@ -1,12 +1,37 @@
+/* 
+background: #ecf0f3
+lighter blue color text: #1460f2
+darker blue color text: #003c80
 
+button color: #1460f2
+button hover color: #0f4bbf
+*/
 #home{
-    padding: 128px 64px;
+    padding: 64px;
     background-color: #ecf0f3;
 }
+
+/* General elements */
+
+.section-subheading{
+  padding: 4px;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #003c80;
+}
+
+.section-heading{
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Hero Section */
 
 .hero{
     display: flex;
     justify-content: center;
+    padding: 64px 0;
 }
 
 .hero-content{
@@ -18,22 +43,16 @@
     gap: 48px;
 }
 
+.hero .section-subheading{
+  letter-spacing: 1.5px;
+  color: black;
+}
+
 
 #hero-image{
     height: 75vh;
-    animation: slide_up 1.5s ease;
 }
 
-@keyframes slide_up {
-  0% {
-    transform: translateY(15%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0%);
-    opacity: 1;
-  }
-}
 
 .hero-content-container{
     display: flex;
@@ -42,10 +61,7 @@
     
     align-items: flex-start;
     width: 90%;
-    animation: slide_right 1.5s ease;
-}
-.hero-content-container-title span{
-  color:#1460f2;
+    animation: slide_right 1.75s ease;
 }
 
 @keyframes slide_right {
@@ -59,14 +75,12 @@
   }
 }
 
-.hero-content-container-top-text{
-    padding: 4px;
-    font-size: 1rem;
-    font-weight: 400;
-    letter-spacing: 1.5px;
+.section-heading span{
+  color:#1460f2;
 }
 
-.hero-content-container-title{
+
+.section-heading{
     font-size: 4rem;
     line-height: 1;
     font-weight: 700;
@@ -88,7 +102,7 @@
     color: white;
     border: none;
     border-radius: 8px;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -102,16 +116,151 @@
     transform: scale(0.95);
 }
 
+
+
+/* Resume Summary Section */
+.resume-summary{
+    padding: 64px 0;
+}
+
+.resume-content{
+  padding: 32px 0;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.resume-content-container{
+  flex: 0 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.resume-content-options{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  list-style: none;
+  gap: 16px;
+
+}
+
+.option-list-active, .option-list-inactive{
+  border: 2px solid #1460f2;
+  
+  padding: 16px 48px;
+  border-radius: 8px;
+  
+  font-size: 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.option-list-active{
+  background-color: #1460f2;
+  color: white;
+}
+
+.option-list-inactive{
+  color: #1460f2;
+
+}
+
+
+.resume-content-inactive{
+  display:none;
+}
+
+.resume-content-active{
+  display:flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+      /* Education & Experience  */
+.education-card-container, .experience-card-container {
+  background-color: #ecf0f3;
+  border: 2px solid #ecf0f3;
+  padding: 1.5rem 2.5rem;
+  display:flex;
+  flex-direction: row;
+  transition: 0.5s;
+  box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.25);
+}
+
+.education-card-logo img, .experience-card-logo img {
+  height: 25vh;
+  border: 2px solid #ecf0f3;
+  background-color: white;
+}
+
+.education-card-details, .experience-card-details {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 2rem;
+}
+
+.education-card-container h1, .experience-card-container h1 {
+  font-size: 2rem;
+  color: #357bf7;
+  font-weight: 700;
+}
+
+
+.education-card-container span, .experience-card-container span {
+  font-size: 1rem;
+  font-weight:600;
+  color: #003c80;
+}
+
+.education-card-meta, .experience-card-meta {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+.education-card-container ul, .experience-card-container ul {
+  list-style-type:disc;
+  padding: 0.75rem 1rem;
+}
+
+.education-card-container li, .experience-card-container li {
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+
+
+
+
+
+
+
 /* Nest Hub Max */
-
 /* (Asus Zenbook Fold, Surface Pro 7, iPad Pro, iPad Air) still have UI issue */
-
 /* (Nest Hub, Surface Duo, Surface Pro 7) and below */
 @media (max-width: 1280px){
   #home{
-    padding: 128px 0;
+    padding: 64px 32px;
   }
 
+  /* General elements */
+  .section-subheading{
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+  }
+
+  .section-heading{
+    font-size: 4.5rem;
+  }
+
+
+  /* Hero Section */
   .hero{
     flex-direction: column;
     align-items: center;
@@ -135,16 +284,6 @@
     width: 100%;
   }
 
-  .hero-content-container-top-text{
-    font-size: 1rem;
-    font-weight: 400;
-    letter-spacing: 1px;
-  }
-
-  .hero-content-container-title{
-    font-size: 4.5rem;
-  }
-
 
   .hero-button-container{
     align-items: center;
@@ -153,22 +292,83 @@
   .hero-content-container-button{
     font-size: 1.75rem;
   }
-  
+
+  /* Resume Summary Section */
+  .option-list-active, .option-list-inactive{
+    font-size: 1.75rem;
+  }
+
+  .education-card-logo, .experience-card-logo{
+    display:flex;
+    justify-content: center;
+  }
+
+  .education-card-container, .experience-card-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .education-card-logo img, .experience-card-logo img{
+    height: 20vh;
+    width: 20vh;
+  }
+
+  .education-card-details, .experience-card-details {
+    padding: 0.5rem 0;
+  }
+
+  .education-card-details h1, .experience-card-details h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .education-card-meta, .experience-card-meta {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .education-card-details span, .experience-card-details span{
+    font-size: 1rem;
+    text-align: center;
+  }
+  .education-card-details span:last-child, .experience-card-details span:last-child{
+    font-weight: 400;
+  }
 }
 
 @media (max-width: 768px){
 
-  .hero-content-container-title{
+  /* General elements */
+  .section-heading{
     font-size: 3rem;
   }
 
+  /* Hero Section */
   .hero-content-container-button{
+    font-size: 1.25rem;
+  }
+
+  /* Resume Summary Section */
+  .option-list-active, .option-list-inactive{
     font-size: 1.25rem;
   }
 
 }
 
 @media (max-width: 480px){
+
+  /* General elements */
+  .section-subheading{
+    font-size: 0.75rem;
+    letter-spacing: 0;
+  }
+
+  .section-heading{
+    font-size: 2rem;
+  }
+
+  /* Hero Section */
   #hero-image{
     height: 45vh;
   }
@@ -177,18 +377,20 @@
     gap: 24px;
   }
 
-  .hero-content-container-top-text{
-    font-size: 0.75rem;
-    letter-spacing: 0;
-  }
-
-  .hero-content-container-title{
-    font-size: 2rem;
-  }
-
   .hero-content-container-button{
     font-size: 1rem;
     padding: 12px 24px;
+  }
+
+  /* Resume Summary Section */
+  .option-list-active, .option-list-inactive{
+    font-size: 1rem;
+    padding: 12px 36px;
+  }
+
+  .education-card-details h1, .experience-card-details h1 {
+    font-size: 1.25rem;
+    text-align: center;
   }
 
 }
