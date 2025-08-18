@@ -51,6 +51,19 @@ button hover color: #0f4bbf
 
 #hero-image{
     height: 75vh;
+    animation:slide_up 1.5s ease;
+}
+
+@keyframes slide_up {
+  0% {
+    transform: translateY(5%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  
 }
 
 
@@ -178,7 +191,8 @@ button hover color: #0f4bbf
 .resume-content-active{
   display:flex;
   flex-direction: column;
-  gap: 16px;
+
+  animation: fade_in 0.5s ease forwards
 }
 
       /* Education & Experience  */
@@ -189,7 +203,11 @@ button hover color: #0f4bbf
   display:flex;
   flex-direction: row;
   transition: 0.5s;
-  box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.25);
+  /* box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.25); */
+  border-bottom: 2px solid #c7d6e2;
+}
+.education-card-container:last-child, .experience-card-container:last-child {
+  border-bottom: none;
 }
 
 .education-card-logo img, .experience-card-logo img {
@@ -233,6 +251,34 @@ button hover color: #0f4bbf
   font-size: 0.85rem;
   font-weight: 400;
 }
+
+.fade-out {
+  animation: fade_out 0.5s ease forwards;
+}
+
+
+
+@keyframes fade_out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fade_in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+  
+}
+
+
+
 
 
 

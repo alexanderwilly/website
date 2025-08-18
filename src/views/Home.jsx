@@ -19,7 +19,16 @@ function Home(){
     const [toggle, setToggle] = useState(1);
 
     const updateToggle = (value) => {
-        setToggle(value);
+        const activeContent = document.querySelector(".resume-content-active");
+        if (activeContent) {
+            activeContent.classList.add("fade-out");
+            setTimeout(() => {
+                activeContent.classList.remove("fade-out");
+                setToggle(value);
+            }, 300); 
+        } else {
+            setToggle(value);
+        }
     }
 
     const home_image_maps = {
