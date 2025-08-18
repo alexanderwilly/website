@@ -117,7 +117,7 @@ function Home(){
             <hr />
 
             {/* Resume Summary */}
-            <section className = "resume-summary">
+            <section className = "section-container">
                 <h5 className = "section-subheading">ABOUT ME</h5>
                 <h2 className = "section-heading">My Resume</h2>
 
@@ -163,6 +163,14 @@ function Home(){
             </section>
 
             <hr/>
+
+            {/* Project */}
+            <section className = 'section-container'>
+                <h5 className = "section-subheading">ABOUT ME</h5>
+                <h2 className = "section-heading">My Resume</h2>
+
+            </section>
+            
         </main>
     );
 }

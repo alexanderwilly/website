@@ -13,6 +13,10 @@ button hover color: #0f4bbf
 
 /* General elements */
 
+.section-container{
+  padding: 64px 0;
+}
+
 .section-subheading{
   padding: 4px;
   font-size: 1rem;
@@ -132,10 +136,6 @@ button hover color: #0f4bbf
 
 
 /* Resume Summary Section */
-.resume-summary{
-    padding: 64px 0;
-}
-
 .resume-content{
   padding: 32px 0;
   display:flex;
@@ -277,7 +277,7 @@ button hover color: #0f4bbf
   
 }
 
-
+/* Project Showcase Section */
 
 
 
