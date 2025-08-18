@@ -213,7 +213,7 @@ button hover color: #0f4bbf
 .education-card-logo img, .experience-card-logo img {
   height: 25vh;
   border: 2px solid #ecf0f3;
-  background-color: #ecf0f3;
+  background-color: #fffffe;
 }
 
 .education-card-details, .experience-card-details {
