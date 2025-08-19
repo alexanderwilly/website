@@ -12,7 +12,6 @@ button hover color: #0f4bbf
 }
 
 /* General elements */
-
 .section-container{
   padding: 64px 0;
 }
@@ -31,7 +30,6 @@ button hover color: #0f4bbf
 }
 
 /* Hero Section */
-
 .hero{
     display: flex;
     justify-content: center;
@@ -52,10 +50,9 @@ button hover color: #0f4bbf
   color: black;
 }
 
-
 #hero-image{
     height: 75vh;
-    animation:slide_up 1.5s ease;
+    animation: slide_up 1.5s ease;
 }
 
 @keyframes slide_up {
@@ -95,7 +92,6 @@ button hover color: #0f4bbf
 .section-heading span{
   color:#1460f2;
 }
-
 
 .section-heading{
     font-size: 4rem;
@@ -197,13 +193,10 @@ button hover color: #0f4bbf
 
       /* Education & Experience  */
 .education-card-container, .experience-card-container {
-  background-color: #ecf0f3;
-  border: 2px solid #ecf0f3;
   padding: 1.5rem 2.5rem;
   display:flex;
   flex-direction: row;
   transition: 0.5s;
-  /* box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.25); */
   border-bottom: 2px solid #c7d6e2;
 }
 .education-card-container:last-child, .experience-card-container:last-child {
@@ -278,11 +271,146 @@ button hover color: #0f4bbf
 }
 
 /* Project Showcase Section */
+.project-card-container{
+  padding: 1.5rem 2.5rem;
+  display:flex;
+  flex-direction: row;
+  transition: 0.5s;
+  border-bottom: 2px solid #c7d6e2;
+  width: 100%;
+}
+
+.project-card-container:last-child {
+  border-bottom: none;
+}
+
+.project-card-image{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.project-card-image img{
+  height: 100%;
+  width: 100%;
+  object-fit: fill;
+  border: 2px solid #ecf0f3;
+  background-color: #fffffe;
+}
+
+.project-card-details{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 2rem;
+  width: 70%;
+  gap: 32px;
+}
+
+.project-card-container h1{
+  font-size: 2rem;
+  color: #357bf7;
+  font-weight: 700;
+}
+
+.project-card-container p{
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+
+.project-card-description{
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card-description h4{
+  margin-bottom: 18px;
+  color: #48657d;
+}
+
+.project-card-description p{
+  margin-top: 18px;
+  font-size: 1rem;
+}
+
+.project-card-meta{
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+.project-card-meta span{
+  color: #003c80;
+  font-size: 1rem;
+
+}
+
+.project-card-meta span:first-child{
+  font-weight: 600;
+}
 
 
 
+.project-card-buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
 
+.project-card-buttons a{
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
 
+.project-card-buttons a:hover{
+  background-color: #1460f2;
+}
+
+.link-avail{
+  background-color: #357bf7;
+
+}
+
+.link-unavail{
+  pointer-events: none;
+  background-color: #808080;
+}
+
+.project-load-more-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 0;
+}
+
+.project-load-more-button{
+  padding: 16px 32px;
+  background-color: #1460f2;
+  color: #ecf0f3;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.project-load-more-button:hover{
+    background-color: #0f4bbf;
+}
+
+.project-load-more-button:active{
+    transform: scale(0.95);
+}
 
 
 
@@ -381,6 +509,52 @@ button hover color: #0f4bbf
   .education-card-details span:last-child, .experience-card-details span:last-child{
     font-weight: 400;
   }
+  /* Project */
+  .project-card-container{
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .project-card-image{
+    width: 75%;
+  }
+
+  .project-card-image img{
+    height:100%;
+    width:100%;
+  }
+
+  .project-card-details{
+    padding: 4vh 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .project-card-description p{
+    text-align: left;
+  }
+
+
+  .project-content{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .project-card-meta{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding-top: 16px;
+  }
+
+  .project-card-buttons a{
+    font-size: 1rem;
+  }
+
+  .project-load-more-container{
+    margin-top: 32px;
+  }
 }
 
 @media (max-width: 768px){
@@ -438,6 +612,26 @@ button hover color: #0f4bbf
     font-size: 1.25rem;
     text-align: center;
   }
+
+
+  .education-card-details ul, .experience-card-details ul {
+    padding: 2vh 0;
+    
+  }
+
+  /* Project Section */
+  .project-card-image{
+    width: 100%;
+  }
+
+  .project-card-container{
+    padding: 1.5rem 0.5rem;
+  }
+
+  .project-card-buttons a{
+    font-size: 0.75rem;
+  }
+
 
 }
 
