@@ -359,7 +359,7 @@ function Home(){
 
                  <div className = "contact-container">
                     {
-                        info.contacts.map((contact, index) => (
+                        info.contacts.slice(1, 3).map((contact, index) => (
                             contactCard({
                                 index: index,
                                 contact_type: contact.contact_type,

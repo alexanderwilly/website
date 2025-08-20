@@ -567,6 +567,7 @@ hr{
   display: flex;
   text-decoration: none;
   align-items: center;
+  font-size: 1.125rem;
 }
 
 .contact-card a span::after {
