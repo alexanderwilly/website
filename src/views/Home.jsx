@@ -370,6 +370,9 @@ function Home(){
                         ))
                     }
                 </div>
+                <footer>
+                    <span>&copy; {new Date().getFullYear()} {info.full_name === null ? "" : `${info.full_name}.`} All rights reserved.</span>
+                </footer>
 
             </section>
 
