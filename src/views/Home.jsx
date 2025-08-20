@@ -17,6 +17,11 @@ import activeaxis from "../media/projects/activeaxis.jpg"
 import portfolio from "../media/projects/portfolio.jpg"
 import cafe from "../media/projects/cafe.jpg"
 
+// contact
+import github_icon from "../media/social_media/github_icon.png"
+import linkedin_icon from "../media/social_media/linkedin_icon.png"
+import mail_icon from "../media/social_media/mail_icon.png"
+
 import info from "../media/input.json"
 
 import './styles/Home.css';
@@ -24,6 +29,7 @@ import './styles/Home.css';
 function Home(){
     const navigate = useNavigate();
     const [toggle, setToggle] = useState(1);
+    const [currentIndex, setCurrentIndex] = useState(0);
 
     const updateToggle = (value) => {
         const activeContent = document.querySelector(".resume-content-active");
@@ -37,6 +43,33 @@ function Home(){
             setToggle(value);
         }
     }
+
+    const showTestimonial = (index)=>{
+        if (index >= info.testimonials.length) {
+            index = 0;
+        } else if (index < 0){
+            index = info.testimonials.length - 1;
+        }
+
+
+        setCurrentIndex(index);
+
+        const dots = document.querySelectorAll(".dot");
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentIndex);
+        });
+        
+    }
+
+    const handlePrev = () => {
+        const newIndex = currentIndex === 0 ? info.testimonials.length - 1 : currentIndex - 1;
+        setCurrentIndex(newIndex);
+    };
+
+    const handleNext = () => {
+        const newIndex = currentIndex === info.testimonials.length - 1 ? 0 : currentIndex + 1;
+        setCurrentIndex(newIndex);
+    };
 
     const home_image_maps = {
         "display_image":display_image,
@@ -53,7 +86,12 @@ function Home(){
         "petheaven":petheaven,
         "activeaxis":activeaxis,
         "portfolio":portfolio,
-        "cafe":cafe
+        "cafe":cafe,
+
+        // contact icons
+        "github_icon":github_icon,
+        "linkedin_icon":linkedin_icon,
+        "mail_icon":mail_icon
     }
 
     const experience_card = (index, job_title, company_name, company_logo, start_date, end_date, description) =>{
@@ -102,7 +140,6 @@ function Home(){
     }
 
     const project_card = (index, project_name, description, project_type, project_image, repository_link, product_link, tags) =>{
-        console.log(repository_link)
         return(
             <div className = "project-card-container" key={`project-${index}`}>
                 <div className = "project-card-image">
@@ -128,6 +165,38 @@ function Home(){
             </div>
         )
     }
+
+    const TestimonialCard = ({ index, testimonial, author, link }) => {
+        return (
+            <div className="testimonial-card" key={`testimonial-${index}`}>
+                <p className = "testimonial-text">"{testimonial}"</p>
+                <cite className = "testimonial-author">- <a href={link} target="_blank" rel="noopener noreferrer">{author}</a></cite>
+            </div>
+        );
+    };
+
+    const contactCard = ({index, contact_type, contact_display, contact_icon, contact_value})=>{
+        return(
+            <div className = "contact-card" key = {`contact-${index}`}>
+                <a href = {contact_value} >
+                    <img src = {home_image_maps[contact_icon]} alt = {contact_type} />
+                    <span>{contact_display}</span>
+                </a>
+                
+            </div>
+        );
+    }
+
+    useEffect(() => {
+        const autoScrollInterval = setInterval(() => {
+            handleNext(); 
+        }, 5000);
+
+        return () => {
+            clearInterval(autoScrollInterval);
+        };
+
+    }, [currentIndex, info.testimonials.length]);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -234,6 +303,76 @@ function Home(){
                 </div>
 
             </section>
+
+            <hr />
+
+            <section className="section-container">
+                <h5 className="section-subheading">WHAT PEOPLE SAY</h5>
+                <h2 className="section-heading">TESTIMONIALS</h2>
+
+                <article id="testimonial-carousel" className="carousel-wrapper">
+                    <div className="carousel-container">
+                        <div className = "carousel-slider" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+                            {
+                                info.testimonials.map((testimonial, index) => (
+                                    <div style={{ flex: '0 0 100%' }} key={index}>
+                                        <TestimonialCard
+                                            index={index}
+                                            testimonial={testimonial.testimonial}
+                                            author={testimonial.author}
+                                            link={testimonial.link}
+                                        />
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
+
+                    <button className="carousel-btn left" onClick={handlePrev}>
+                        &#10094;
+                    </button>
+                    <button className="carousel-btn right" onClick={handleNext}>
+                        &#10095;
+                    </button>
+
+                    <div className="dots-container">
+                        {
+                            info.testimonials.map((_, index) => (
+                                <button
+                                    key={index}
+                                    className={currentIndex === index ? "dot active" : "dot"}
+                                    aria-label={`Go to testimonial ${index + 1}`}
+                                    onClick={() => setCurrentIndex(index)}
+                                />
+                            ))
+                        }
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <section className = "section-container">
+                <h1>{info.full_name === null ? "FULL NAME" : info.full_name}</h1>
+                <h4>Let's Connect!</h4>
+
+                 <div className = "contact-container">
+                    {
+                        info.contacts.map((contact, index) => (
+                            contactCard({
+                                index: index,
+                                contact_type: contact.contact_type,
+                                contact_display: contact.contact_display,
+                                contact_icon: contact.contact_icon,
+                                contact_value: contact.contact_value
+                            })
+                        ))
+                    }
+                </div>
+
+            </section>
+
             
         </main>
     );

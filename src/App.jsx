@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function App(){
 
   useEffect(() => {
-    toast.info("Notice: This site is best viewed on a desktop or laptop computer");
+    toast.info("Notice: This site is best viewed on a desktop or laptop computer. Thank you for visiting!");
   }, []);
 
   return(

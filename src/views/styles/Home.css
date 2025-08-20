@@ -7,13 +7,12 @@ button color: #1460f2
 button hover color: #0f4bbf
 */
 #home{
-    padding: 64px;
     background-color: #ecf0f3;
 }
 
 /* General elements */
 .section-container{
-  padding: 64px 0;
+  padding: 32px 64px;
 }
 
 .section-subheading{
@@ -29,11 +28,15 @@ button hover color: #0f4bbf
   letter-spacing: 1px;
 }
 
+hr{
+  margin: 0 64px;
+}
+
 /* Hero Section */
 .hero{
     display: flex;
     justify-content: center;
-    padding: 64px 0;
+    padding: 128px 0 64px 0;
 }
 
 .hero-content{
@@ -412,6 +415,184 @@ button hover color: #0f4bbf
     transform: scale(0.95);
 }
 
+/* Testimonial */
+.carousel-wrapper {
+    background-color: #ffffff;
+    border-radius: 0.5rem; /* Equivalent to rounded-lg */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* Equivalent to shadow-xl */
+    position: relative;
+    margin: 2rem 8rem;
+    padding: 2rem 8rem;
+}
+
+.carousel-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+
+/* --- Testimonial Card Styles --- */
+.testimonial-card {
+    flex-shrink: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 2rem;
+    text-align: center;
+}
+
+.testimonial-text {
+    font-size: 1.125rem; /* Equivalent to text-lg */
+    font-style: italic;
+    color: #374151; /* Equivalent to text-gray-700 */
+}
+
+
+.testimonial-author {
+    margin-top: 1rem; /* Equivalent to mt-4 */
+    display: block;
+    font-weight: 600; /* Equivalent to font-semibold */
+    color: #111827; /* Equivalent to text-gray-900 */
+}
+
+
+
+.testimonial-author a {
+    color: #2563eb; /* Equivalent to text-blue-600 */
+    text-decoration: none;
+}
+
+.testimonial-author a:hover {
+  border-bottom: 1px solid #1460f2; /* Equivalent to border-b-2 */
+}
+
+
+/* --- Navigation Buttons and Dots --- */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+
+.carousel-btn.left {
+    left: 0.5rem;
+}
+
+.carousel-btn.right {
+    right: 0.5rem;
+}
+
+.dots-container {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #cbd5e1;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: none; /* Ensure button reset */
+    padding: 0;
+}
+
+.dot.active {
+    background-color: #4b5563;
+}
+
+/* Last section */
+.section-container:last-child {
+    /* background-color: #003c80; */
+    padding: 32px 36px;
+    background-color: #5a6d7e;
+    color: #ffffff;
+}
+
+.section-container:last-child h1{
+  font-size: 2rem;
+}
+
+.section-container:last-child h4{
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 16px 0;
+}
+
+.contact-card{
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid #c7d6e2;
+}
+
+.contact-card:last-child{
+  border-bottom: none;
+}
+
+.contact-card img{
+  width: 36px;
+  height: 36px;
+  margin-right: 12px;
+}
+
+.contact-card span {
+  position: relative;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.contact-card a{
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+}
+
+.contact-card a span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: aqua;
+}
+
+.contact-card a:hover span {
+  color: aqua;
+}
+
+.contact-card a:hover span::after {
+  animation: underline-expand 0.3s forwards ease-out;
+}
+@keyframes underline-expand {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+
+
 
 
 /* Nest Hub Max */
@@ -555,6 +736,20 @@ button hover color: #0f4bbf
   .project-load-more-container{
     margin-top: 32px;
   }
+
+  /* Testimonial */
+  .carousel-wrapper {
+    margin: 2rem 4rem;
+    padding: 2rem 4rem;
+  }
+
+  .testimonial-author a{
+    border-bottom: 1px solid #1460f2;
+  }
+
+  .testimonial-author a:hover{
+    text-decoration: none;
+  }
 }
 
 @media (max-width: 768px){
@@ -573,6 +768,9 @@ button hover color: #0f4bbf
   .option-list-active, .option-list-inactive{
     font-size: 1.25rem;
   }
+
+  /* Testimonial */
+
 
 }
 
@@ -630,6 +828,12 @@ button hover color: #0f4bbf
 
   .project-card-buttons a{
     font-size: 0.75rem;
+  }
+
+  /* Testimonial */
+  .carousel-wrapper {
+    margin: 2rem 0;
+    padding: 0.5rem 1.5rem;
   }
 
 
