@@ -107,28 +107,26 @@ function Projects(){
     // Update available tags when the selected project type changes
     useEffect(() => {
         if (selectedType === 'All') {
-            // If 'All' is selected, combine all tags from all project types
+            // combine all tags from all project types
             const allTags = tagsData.project_type.flatMap(type => type.tags);
             setAvailableTags([...new Set(allTags)]); // Use Set to remove duplicates
         } else {
-            // Find the selected type object and set its tags
+            // Find the selected type object
             const typeObj = tagsData.project_type.find(p => p.type_name === selectedType);
             setAvailableTags(typeObj ? typeObj.tags : []);
         }
-        // When the type changes, reset the selected tags
+        // reset the selected tags
         setSelectedTags([]);
     }, [selectedType]);
 
-    // Effect to handle clicks outside of the tag dropdown to close it
+    // handle clicks outside of the tag dropdown
     useEffect(() => {
         function handleClickOutside(event) {
             if (tagDropdownRef.current && !tagDropdownRef.current.contains(event.target)) {
                 setIsTagDropdownOpen(false);
             }
         }
-        // Bind the event listener
         document.addEventListener("mousedown", handleClickOutside);
-        // Unbind the event listener on clean up
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
@@ -136,7 +134,7 @@ function Projects(){
 
     // Filtering logic
     useEffect(() => {
-        // If no tags are selected, show all projects.
+        // show all projects.
         if (selectedTags.length === 0) {
             setFilteredProjects(info.projects);
             return;
@@ -144,7 +142,6 @@ function Projects(){
 
         // Filter by Tags
         const projects = info.projects.filter(project => 
-            // A project must have ALL of the selected tags
             selectedTags.every(tag => project.tags.includes(tag))
         );
 
@@ -218,14 +215,16 @@ function Projects(){
                             <div className = "active-filters-container">
                                 <h3 className = "active-filters-title">Active Filters:</h3>
                                 <div className = "tags-wrapper">
-                                    {selectedTags.map(tag => (
-                                        <div key={tag} className = "tag-pill">
-                                            <span>{tag}</span>
-                                            <button onClick={() => removeSelectedTag(tag)} className = "tag-remove-button">
-                                                X
-                                            </button>
-                                        </div>
-                                    ))}
+                                    {
+                                        selectedTags.map(tag => (
+                                            <div key={tag} className = "tag-pill">
+                                                <span>{tag}</span>
+                                                <button onClick={() => removeSelectedTag(tag)} className = "tag-remove-button">
+                                                    X
+                                                </button>
+                                            </div>
+                                        ))
+                                    }
                                 </div>
                             </div>
                         )
