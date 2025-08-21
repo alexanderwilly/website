@@ -100,6 +100,10 @@ function Projects(){
         );
     }
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     // Update available tags when the selected project type changes
     useEffect(() => {
         if (selectedType === 'All') {
