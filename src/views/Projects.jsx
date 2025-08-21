@@ -1,6 +1,5 @@
 import React, {useEffect, useState, useRef} from "react";
 import {Link, useNavigate} from "react-router-dom";
-import { ChevronDown, X } from 'lucide-react';
 
 
 import Navbar from "../components/Navbar";
