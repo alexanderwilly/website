@@ -11,6 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function App(){
 
   useEffect(() => {
+    toast.warning("Notice: Only the main page can be refreshed. Please use the navigation links to browse this site. Thank you!");
     toast.info("Notice: This site is best viewed on a desktop or laptop computer. Thank you for visiting!");
   }, []);
 
