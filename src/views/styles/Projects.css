@@ -1,0 +1,172 @@
+#projects{
+    background-color: #ecf0f3;
+}
+
+/* Project Hero */
+.project-hero{
+    padding: 128px 64px 64px 64px;
+}
+
+.project-content{
+    min-height: 50vh;
+    overflow-y: auto;
+}
+
+.dropdown-container{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    padding-top: 32px;
+}
+
+.dropdown{
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%;
+}
+
+.dropdown-label{
+    display: block;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 0.25rem;
+}
+
+.dropdown-select{
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+}
+
+.tag-dropdown-container{
+    flex: 1 1 0%;
+    position: relative;
+}
+
+.dropdown-toggle{
+    width: 100%;
+    appearance: none;
+    text-align: left;
+    font-size: 1rem;
+    padding: 0.5rem 0.75rem;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' strokeLinecap='round' strokeLinejoin='round' strokeWidth='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    cursor: pointer;
+}
+
+
+
+.dropdown-toggle span{
+    color: #374151;
+}
+
+.dropdown-menu{
+    position:absolute;
+    z-index: 10;
+    width: 100%;
+    margin-top: 0.25rem;
+    background-color: white;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    max-height: 15rem;
+    overflow-y: auto;
+}
+
+.dropdown-menu ul{
+    padding: 0.5rem;
+    margin: 0;
+    list-style: none;
+}
+
+.menu-item{
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+}
+
+.menu-item:hover{
+    background-color: #d1d5db;
+}
+
+.menu-item-checkbox{
+    height: 1rem;
+    width: 1rem;
+    color: #4f46e5;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+}
+
+.menu-item-label{
+    margin-left: 0.75rem;
+    font-size: 0.875rem;
+    color: #374151;
+    cursor: pointer;
+    flex: 1;
+}
+
+.active-filters-container{
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.active-filters-title{
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 0.5rem;
+}
+
+.tags-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag-pill{
+    display: flex;
+    align-items: center;
+    background-color: #e0e7ff;
+    color: #3730a3;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.625rem;
+    border-radius: 9999px;
+}
+
+.tag-remove-button{
+    margin-left: 0.5rem;
+    color: #6366f1;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.no-results-text{
+    text-align: center;
+    color: #6b7280;
+    padding: 2rem;
+}
+
+@media (max-width: 480px){
+    .dropdown-container{
+        flex-direction: column;
+    }
+
+}

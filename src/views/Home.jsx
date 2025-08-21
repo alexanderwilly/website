@@ -94,7 +94,7 @@ function Home(){
         "mail_icon":mail_icon
     }
 
-    const experience_card = (index, job_title, company_name, company_logo, start_date, end_date, description) =>{
+    const ExperienceCard = ({index, job_title, company_name, company_logo, start_date, end_date, description}) =>{
         return(
             <div className = "experience-card-container" key={`experience-${index}`}>
                 <div className = "experience-card-logo">
@@ -117,7 +117,7 @@ function Home(){
         )
     }
 
-    const education_card = (index, degree_name, university_name, university_logo, start_date, end_date, is_current, description)=>{
+    const EducationCard = ({index, degree_name, university_name, university_logo, start_date, end_date, is_current, description})=>{
         return(
             <div className = "education-card-container" key={`education-${index}`}>
                 <div className = "education-card-logo">
@@ -139,7 +139,7 @@ function Home(){
         );
     }
 
-    const project_card = (index, project_name, description, project_type, project_image, repository_link, product_link, tags) =>{
+    const ProjectCard = ({index, project_name, description, project_type, project_image, repository_link, product_link, tags}) =>{
         return(
             <div className = "project-card-container" key={`project-${index}`}>
                 <div className = "project-card-image">
@@ -175,7 +175,7 @@ function Home(){
         );
     };
 
-    const contactCard = ({index, contact_type, contact_display, contact_icon, contact_value})=>{
+    const ContactCard = ({index, contact_type, contact_display, contact_icon, contact_value})=>{
         return(
             <div className = "contact-card" key = {`contact-${index}`}>
                 <a href = {contact_value} >
@@ -241,15 +241,16 @@ function Home(){
                         <div className = {toggle === 1 ? "resume-content-active" : "resume-content-inactive"}>
                             {
                                 info.experiences.map((experience, index) => (
-                                    experience_card(
-                                        index,
-                                        experience.job_title,
-                                        experience.company_name,
-                                        experience.company_logo,
-                                        experience.start_date,
-                                        experience.end_date,
-                                        experience.description
-                                    )
+                                    <ExperienceCard
+                                        key={index}
+                                        index={index}
+                                        job_title={experience.job_title}
+                                        company_name={experience.company_name}
+                                        company_logo={experience.company_logo}
+                                        start_date={experience.start_date}
+                                        end_date={experience.end_date}
+                                        description={experience.description}
+                                    />
                                 ))
                             }
                         </div>
@@ -257,16 +258,17 @@ function Home(){
 
                             {
                                 info.educations.map((education, index) => (
-                                    education_card(
-                                        index,
-                                        education.degree_name,
-                                        education.university_name,
-                                        education.university_logo,
-                                        education.start_date,
-                                        education.end_date,
-                                        education.is_current,
-                                        education.description
-                                    )
+                                    <EducationCard
+                                        key={index}
+                                        index={index}
+                                        degree_name={education.degree_name}
+                                        university_name={education.university_name}
+                                        university_logo={education.university_logo}
+                                        start_date={education.start_date}
+                                        end_date={education.end_date}
+                                        is_current={education.is_current}
+                                        description={education.description}
+                                    />
                                 ))
                             }
                         </div>
@@ -284,16 +286,17 @@ function Home(){
                 <article className = "project-content">
                     {
                         info.projects.slice(0,3).map((project, index) => (
-                            project_card(
-                                index,
-                                project.project_name,
-                                project.description,
-                                project.project_type,
-                                project.project_image,
-                                project.repository_link,
-                                project.product_link,
-                                project.tags
-                            )
+                            <ProjectCard
+                                key={index}
+                                index={index}
+                                project_name={project.project_name}
+                                description={project.description}
+                                project_type={project.project_type}
+                                project_image={project.project_image}
+                                repository_link={project.repository_link}
+                                product_link={project.product_link}
+                                tags={project.tags}
+                            />
                         ))
                     }
                 </article>
@@ -306,6 +309,7 @@ function Home(){
 
             <hr />
 
+            {/* Testimonials */}
             <section className="section-container">
                 <h5 className="section-subheading">WHAT PEOPLE SAY</h5>
                 <h2 className="section-heading">TESTIMONIALS</h2>
@@ -352,7 +356,7 @@ function Home(){
 
             </section>
 
-
+            {/* Footer / Contact */}
             <section className = "section-container">
                 <h1>{info.full_name === null ? "FULL NAME" : info.full_name}</h1>
                 <h4>Let's Connect!</h4>
@@ -360,13 +364,14 @@ function Home(){
                  <div className = "contact-container">
                     {
                         info.contacts.slice(1, 3).map((contact, index) => (
-                            contactCard({
-                                index: index,
-                                contact_type: contact.contact_type,
-                                contact_display: contact.contact_display,
-                                contact_icon: contact.contact_icon,
-                                contact_value: contact.contact_value
-                            })
+                            <ContactCard
+                                key={index}
+                                index={index}
+                                contact_type={contact.contact_type}
+                                contact_display={contact.contact_display}
+                                contact_icon={contact.contact_icon}
+                                contact_value={contact.contact_value}
+                            />
                         ))
                     }
                 </div>
