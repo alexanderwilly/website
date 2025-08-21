@@ -222,7 +222,7 @@ function Projects(){
                                         <div key={tag} className = "tag-pill">
                                             <span>{tag}</span>
                                             <button onClick={() => removeSelectedTag(tag)} className = "tag-remove-button">
-                                                <X size={14} />
+                                                X
                                             </button>
                                         </div>
                                     ))}
