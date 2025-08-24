@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { toast, ToastContainer, Slide} from 'react-toastify';
 import Home from './views/Home';
 import Projects from './views/Projects';
+import Contact from './views/Contact';
 
 import './App.css'; 
 import 'react-toastify/dist/ReactToastify.css';
@@ -20,6 +21,7 @@ function App(){
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/projects' element={<Projects />} />
+        <Route path='/contact' element={<Contact />} />
       </Routes>
       <ToastContainer 
         position="bottom-center"
