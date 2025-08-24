@@ -577,11 +577,11 @@ hr{
   bottom: -2px;
   width: 0;
   height: 2px;
-  background-color: aqua;
+  background-color: #bbdefb;
 }
 
 .contact-card a:hover span {
-  color: aqua;
+  color: #bbdefb;
 }
 
 .contact-card a:hover span::after {
