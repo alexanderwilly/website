@@ -8,6 +8,7 @@ import info from "../media/input.json"
 import tagsData from "../media/tagsData.json";
 
 // project
+import beat_churn_with_ml from "../media/projects/beat_churn_with_ml.jpg"
 import petheaven from "../media/projects/petheaven.jpg"
 import activeaxis from "../media/projects/activeaxis.jpg"
 import portfolio from "../media/projects/portfolio.jpg"
@@ -35,6 +36,7 @@ function Projects(){
 
     const home_image_maps = {
         // project images
+        "beat_churn_with_ml":beat_churn_with_ml,
         "petheaven":petheaven,
         "activeaxis":activeaxis,
         "portfolio":portfolio,

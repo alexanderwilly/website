@@ -12,6 +12,7 @@ import smu_logo from "../media/education/smu_logo.png"
 import uow_logo from "../media/education/uow_logo.png"
 import simge_logo from "../media/education/simge_logo.png"
 // project
+import beat_churn_with_ml from "../media/projects/beat_churn_with_ml.jpg"
 import petheaven from "../media/projects/petheaven.jpg"
 import activeaxis from "../media/projects/activeaxis.jpg"
 import portfolio from "../media/projects/portfolio.jpg"
@@ -83,6 +84,7 @@ function Home(){
         "simge_logo":simge_logo,
 
         // project images
+        "beat_churn_with_ml":beat_churn_with_ml,
         "petheaven":petheaven,
         "activeaxis":activeaxis,
         "portfolio":portfolio,
