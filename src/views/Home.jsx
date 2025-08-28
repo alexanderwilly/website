@@ -16,6 +16,7 @@ import beat_churn_with_ml from "../media/projects/beat_churn_with_ml.jpg"
 import petheaven from "../media/projects/petheaven.jpg"
 import activeaxis from "../media/projects/activeaxis.jpg"
 import portfolio from "../media/projects/portfolio.jpg"
+import portfolio_2 from "../media/projects/portfolio_2.jpg"
 import cafe from "../media/projects/cafe.jpg"
 
 // contact
@@ -85,6 +86,7 @@ function Home(){
 
         // project images
         "beat_churn_with_ml":beat_churn_with_ml,
+        "portfolio_2":portfolio_2,
         "petheaven":petheaven,
         "activeaxis":activeaxis,
         "portfolio":portfolio,
