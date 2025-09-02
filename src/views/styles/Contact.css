@@ -32,7 +32,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    gap: 64px;
+    gap: 36px;
 }
 
 .contact-card-contact_pg a{
@@ -46,6 +46,7 @@
     padding: 32px;
     border-radius: 16px;
     gap: 16px;
+    width: 16rem;
     transition: background-color 0.3s ease;
 }
 
@@ -67,7 +68,15 @@
     transform: scale(0.95);
 }
 
-@media (max-width: 768px){
+@media (max-width: 968px){
+    .contact-card-contact_pg a{
+        width: 24rem;
+    }
+
+    #contact .contact-container{
+        flex-direction: column;
+    }
+
     .contact-hero-container{
         padding: 128px 16px;
     }
@@ -89,6 +98,7 @@
 
     .contact-card-contact_pg a{
         padding:16px;
+        width: 16rem;
     }
     .contact-card-contact_pg img{
         width: 64px;

@@ -46,7 +46,7 @@ function Contact(){
                 <h1 className = "section-heading">I'd love to chat with you on LinkedIn and share my projects on GitHub!</h1>
                 <div className = "contact-container">
                     {
-                        info.contacts.slice(1, 3).map((contact, index) => (
+                        info.contacts.slice(0, 3).map((contact, index) => (
                             <ContactCard
                                 key={index}
                                 index={index}
