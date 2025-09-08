@@ -3,7 +3,6 @@ import {Link, useNavigate} from "react-router-dom";
 
 import Navbar from "../components/Navbar";
 
-import display_image from "../media/home_pic.png"
 // experience
 import cogoport_logo from "../media/experience/cogoport_logo.jpg"
 import pt__treessolutions_logo from "../media/experience/pt__trees_solutions_logo.jpeg"
@@ -74,7 +73,6 @@ function Home(){
     };
 
     const home_image_maps = {
-        "display_image":display_image,
         // experience logo
         "cogoport_logo":cogoport_logo,
         "pt__trees_solutions_logo":pt__treessolutions_logo,
@@ -211,9 +209,6 @@ function Home(){
             <Navbar />
             {/* Hero Section */}
             <section className = "hero">
-                <article className = "hero-content">
-                    <img src = {home_image_maps[info.display_image]} alt = "Hero" id = "hero-image" />
-                </article>
                 <article className = "hero-content">
                     <div className = "hero-content-container"> 
                         <h5 className = "section-subheading">{info.full_name == null ? "FULL NAME" : info.full_name.toUpperCase() }</h5>
