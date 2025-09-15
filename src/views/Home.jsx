@@ -172,7 +172,7 @@ function Home(){
         return (
             <div className="testimonial-card" key={`testimonial-${index}`}>
                 <p className = "testimonial-text">"{testimonial}"</p>
-                <cite className = "testimonial-author">- <a href={link} target="_blank" rel="noopener noreferrer">{author}</a></cite>
+                <cite className = "testimonial-author">~ <a href={link} target="_blank" rel="noopener noreferrer">{author}</a></cite>
             </div>
         );
     };
