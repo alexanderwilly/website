@@ -311,7 +311,7 @@ function Home(){
             {/* Testimonials */}
             <section className="section-container">
                 <h5 className="section-subheading">WHAT PEOPLE SAY</h5>
-                <h2 className="section-heading">TESTIMONIALS</h2>
+                <h2 className="section-heading">Testimonials</h2>
 
                 <article id="testimonial-carousel" className="carousel-wrapper">
                     <div className="carousel-container">

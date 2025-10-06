@@ -46,7 +46,14 @@ hr{
   color: black;
 }
 
+.hero .section-heading{
+  letter-spacing: 1.5px;
+  color: black;
 
+  font-size: 4rem;
+  line-height: 1;
+  font-weight: 700;
+}
 
 
 
@@ -77,7 +84,7 @@ hr{
 }
 
 .section-heading{
-    font-size: 4rem;
+    font-size: 2.5rem;
     line-height: 1;
     font-weight: 700;
 }
@@ -93,12 +100,12 @@ hr{
 }
 
 .hero-content-container-button{
-    padding: 16px 32px;
+    padding: 12px 26px;
     background-color: #1460f2;
     color: #ecf0f3;
     border: none;
     border-radius: 8px;
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -143,10 +150,10 @@ hr{
 .option-list-active, .option-list-inactive{
   border: 2px solid #1460f2;
   
-  padding: 16px 48px;
+  padding: 12px 36px;
   border-radius: 8px;
   
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -174,7 +181,7 @@ hr{
   animation: fade_in 0.5s ease forwards
 }
 
-      /* Education & Experience  */
+/* Education & Experience  */
 .education-card-container, .experience-card-container {
   padding: 1.5rem 2.5rem;
   display:flex;
@@ -197,6 +204,12 @@ hr{
   justify-content: center;
   flex-direction: column;
   padding: 0 2rem;
+}
+
+.experience-card-details ul{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .education-card-container h1, .experience-card-container h1 {
@@ -258,6 +271,7 @@ hr{
   padding: 1.5rem 2.5rem;
   display:flex;
   flex-direction: row;
+  align-items: center;
   transition: 0.5s;
   border-bottom: 2px solid #c7d6e2;
   width: 100%;
@@ -309,12 +323,12 @@ hr{
 }
 
 .project-card-description h4{
-  margin-bottom: 18px;
+  margin-bottom: 8px;
   color: #48657d;
 }
 
 .project-card-description p{
-  margin-top: 18px;
+  margin-top: 16px;
   font-size: 1rem;
 }
 
@@ -338,17 +352,17 @@ hr{
 
 .project-card-buttons{
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 8px;
 }
 
 .project-card-buttons a{
-  padding: 12px 24px;
+  padding: 10px 18px;
   border: none;
   border-radius: 4px;
   color: white;
-  font-size: 1rem;
+  font-size: 0.85rem;
   font-weight: 500;
   text-decoration: none;
   transition: background-color 0.3s ease;
@@ -376,12 +390,12 @@ hr{
 }
 
 .project-load-more-button{
-  padding: 16px 32px;
+  padding: 12px 26px;
   background-color: #1460f2;
   color: #ecf0f3;
   border: none;
   border-radius: 8px;
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -574,7 +588,29 @@ footer{
   text-align: center;
 }
 
-@media (max-width: 1280px){
+@media (max-width: 1280px ){
+  .education-card-container h1, .experience-card-container h1, .project-card-container h1 {
+    font-size: 1.5rem;
+  }
+  
+  .project-card-image{
+    width: 35%;
+  }
+
+  .project-card-image img{
+    height:75%;
+    width:100%;
+  }
+
+}
+
+@media( min-height: 1280px ){
+  .education-card-logo img, .experience-card-logo img {
+    height: 14vh;
+  }
+}
+
+@media (max-width: 854px){
 
   /* General elements */
   .section-subheading{
@@ -680,7 +716,7 @@ footer{
   }
 
   .project-card-details{
-    padding: 4vh 0;
+    padding: 2vh 0;
     width: 100%;
     text-align: center;
   }
@@ -703,12 +739,21 @@ footer{
     padding-top: 16px;
   }
 
+
+  .project-card-buttons{
+    justify-content: center;
+  }
+
   .project-card-buttons a{
     font-size: 1rem;
   }
 
   .project-load-more-container{
     margin-top: 32px;
+  }
+
+  .project-card-container h1{
+    font-size: 1.25rem;
   }
 
   /* Testimonial */
@@ -770,6 +815,11 @@ footer{
   .hero-content-container-button{
     font-size: 1rem;
     padding: 12px 24px;
+  }
+
+  .hero .section-heading{
+    font-size: 2rem;
+    text-align: center;
   }
 
   /* Resume Summary Section */
