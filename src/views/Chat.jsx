@@ -6,6 +6,7 @@ import loading_bar from '../media/loading_bar.gif'
 import axios from 'axios';
 import DOMPurify from "dompurify";
 import json_obj from '../media/input.json'
+import urls from '../media/urls.json'
 
 import './styles/Chat.css'
 
@@ -51,7 +52,7 @@ function Chat(){
             history.push(assistant_obj);
             setPrompt('');
  
-            let res = await axios.post('https://generateresponse-yse2agwrma-uc.a.run.app/chat/generateResponse',
+            let res = await axios.post(urls.api_endpoint,
                 {
                     history: history
                 }
