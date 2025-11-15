@@ -8,7 +8,7 @@
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
-    background-color: #ecf0f3;
+    background-color: #053d65;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     
 }
@@ -26,7 +26,7 @@
 
 .navbar a{
     text-decoration: none;
-    color: #162227;
+    color: #FFFFFF;
     font-size: 1.25rem;
     font-weight: 400;
     margin-left: 24px;
@@ -34,12 +34,13 @@
 }
 
 .navbar a:hover{
-    color: #1460f2;
+    color: cyan;
 }
 
 
 .navbar > img{
-    width: 125px;
+    width: 175px;
+    padding: 16px 0;
     cursor: pointer;
 }
 
