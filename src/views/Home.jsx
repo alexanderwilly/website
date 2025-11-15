@@ -11,6 +11,8 @@ import smu_logo from "../media/education/smu_logo.png"
 import uow_logo from "../media/education/uow_logo.png"
 import simge_logo from "../media/education/simge_logo.png"
 // project
+import finance_chatbot from "../media/projects/finance_chatbot.jpg"
+import sciqa from "../media/projects/sciqa.jpg"
 import beat_churn_with_ml from "../media/projects/beat_churn_with_ml.jpg"
 import petheaven from "../media/projects/petheaven.jpg"
 import activeaxis from "../media/projects/activeaxis.jpg"
@@ -83,6 +85,8 @@ function Home(){
         "simge_logo":simge_logo,
 
         // project images
+        "finance_chatbot":finance_chatbot,
+        "sciqa":sciqa,
         "beat_churn_with_ml":beat_churn_with_ml,
         "portfolio_2":portfolio_2,
         "petheaven":petheaven,

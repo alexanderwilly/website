@@ -8,6 +8,8 @@ import info from "../media/input.json"
 import tagsData from "../media/tagsData.json";
 
 // project
+import finance_chatbot from "../media/projects/finance_chatbot.jpg"
+import sciqa from "../media/projects/sciqa.jpg"
 import beat_churn_with_ml from "../media/projects/beat_churn_with_ml.jpg"
 import portfolio_2 from "../media/projects/portfolio_2.jpg"
 import petheaven from "../media/projects/petheaven.jpg"
@@ -37,6 +39,8 @@ function Projects(){
 
     const home_image_maps = {
         // project images
+        "finance_chatbot":finance_chatbot, 
+        "sciqa": sciqa,
         "beat_churn_with_ml":beat_churn_with_ml,
         "portfolio_2":portfolio_2,
         "petheaven":petheaven,
@@ -157,83 +161,6 @@ function Projects(){
             <Navbar />
             <section className = "project-hero">
                 <h1 className = "section-heading">Project Showcase</h1>
-                <div className = "dropdown-container">
-                    {/* Project Type Dropdown */}
-                    <div className = "dropdown">
-                        <label htmlFor="project-type" className = "dropdown-label">
-                            Project Type
-                        </label>
-                        <select id = "project-type" value={selectedType} onChange = {handleTypeChange} className = "dropdown-select">
-                            <option value = "All">All Project Types</option>
-                            {
-                                tagsData.project_type.map(type => (
-                                    <option key={type.type_name} value = {type.type_name}>
-                                        {type.type_name}
-                                    </option>
-                                ))
-                            }
-                        </select>
-                    </div>
-
-                    {/* Tags checkbox dropdown */}
-                    <div className = "tag-dropdown-container" ref={tagDropdownRef}>
-                        <label htmlFor = "tags" className = "dropdown-label">
-                            Tags
-                        </label>
-                        <button type = "button" onClick = {()=> setIsTagDropdownOpen(!isTagDropdownOpen)} className = "dropdown-toggle">
-                            <span>
-                                {
-                                    selectedTags.length > 0 ? `${selectedTags.length} selected` : 'Select Tags'
-                                }
-                            </span>
-                        </button>
-                        {
-                            isTagDropdownOpen && (
-                                <div className="dropdown-menu">
-                                    <ul>
-                                        {availableTags.map(tag => (
-                                            <li key={tag} className="menu-item">
-                                                <input
-                                                    type="checkbox"
-                                                    id={`tag-${tag}`}
-                                                    checked={selectedTags.includes(tag)}
-                                                    onChange={() => handleTagCheckboxChange(tag)}
-                                                    className="menu-item-checkbox"
-                                                />
-                                                <label htmlFor={`tag-${tag}`} className="menu-item-label">
-                                                    {tag}
-                                                </label>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            )
-                        }
-                    </div>
-                </div>
-
-                <div>
-                    {/* --- Display Selected Tags --- */}
-                    {
-                        selectedTags.length > 0 && (
-                            <div className = "active-filters-container">
-                                <h3 className = "active-filters-title">Active Filters:</h3>
-                                <div className = "tags-wrapper">
-                                    {
-                                        selectedTags.map(tag => (
-                                            <div key={tag} className = "tag-pill">
-                                                <span>{tag}</span>
-                                                <button onClick={() => removeSelectedTag(tag)} className = "tag-remove-button">
-                                                    X
-                                                </button>
-                                            </div>
-                                        ))
-                                    }
-                                </div>
-                            </div>
-                        )
-                    }
-                </div>
             </section>
 
 

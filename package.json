@@ -2,7 +2,7 @@
   "homepage": "https://alexanderwilly.github.io/website/",
   "name": "portfolio_website",
   "private": true,
-  "version": "25.8.7",
+  "version": "25.10.17",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -15,6 +15,10 @@
   "dependencies": {
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
+    "axios": "^1.12.2",
+    "dompurify": "^3.3.0",
+    "dotenv": "^17.2.3",
+    "groq-sdk": "^0.33.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.7.1",

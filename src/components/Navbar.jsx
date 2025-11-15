@@ -33,12 +33,14 @@ function Navbar(){
                 </li>
                 <li className="sidebar-link"><Link to = "/">HOME</Link></li>
                 <li className="sidebar-link"><Link to = "/projects">PROJECTS</Link></li>
+                <li className='sidebar-link'><Link to = '/chat'>CHATBOT</Link></li>
                 <li className="sidebar-link"><Link to = "/contact">CONTACT</Link></li>
             </ul>
 
             <ul className = "top-nav">
                 <li className="top-nav-link"><Link to = "/">HOME</Link></li>
                 <li className="top-nav-link"><Link to = "/projects">PROJECTS</Link></li>
+                <li className='top-nav-link'><Link to = '/chat'>CHATBOT</Link></li>
                 <li className="top-nav-link"><Link to = "/contact">CONTACT</Link></li>
 
                 <li id = "bars-icon" className="bars-icon">
