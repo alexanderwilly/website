@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar";
 // experience
 import cogoport_logo from "../media/experience/cogoport_logo.jpg"
 import pt__treessolutions_logo from "../media/experience/pt__trees_solutions_logo.jpeg"
+import wellknown_logo from "../media/experience/wellknown_logo.jpeg"
 // education
 import smu_logo from "../media/education/smu_logo.png"
 import uow_logo from "../media/education/uow_logo.png"
@@ -78,6 +79,7 @@ function Home(){
         // experience logo
         "cogoport_logo":cogoport_logo,
         "pt__trees_solutions_logo":pt__treessolutions_logo,
+        "wellknown_logo": wellknown_logo,
 
         // education logo
         "smu_logo":smu_logo,
