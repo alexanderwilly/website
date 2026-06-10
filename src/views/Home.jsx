@@ -54,15 +54,7 @@ function Home(){
         } else if (index < 0){
             index = info.testimonials.length - 1;
         }
-
-
         setCurrentIndex(index);
-
-        const dots = document.querySelectorAll(".dot");
-        dots.forEach((dot, i) => {
-            dot.classList.toggle('active', i === currentIndex);
-        });
-        
     }
 
     const handlePrev = () => {
@@ -104,14 +96,17 @@ function Home(){
 
     const ExperienceCard = ({index, job_title, company_name, company_logo, start_date, end_date, description}) =>{
         return(
-            <div className = "experience-card-container" key={`experience-${index}`}>
-                <div className = "experience-card-logo">
-                    <img src = {home_image_maps[company_logo]} alt = {company_name} />
+            <div className="glass-card experience-card-container" key={`experience-${index}`}>
+                <div className="experience-card-logo">
+                    <div className="logo-wrapper">
+                        <img src={home_image_maps[company_logo]} alt={company_name} />
+                    </div>
                 </div>
-                <div className = "experience-card-details">
+                <div className="experience-card-details">
                     <h1>{job_title.toUpperCase()}</h1>
-                    <div className = "experience-card-meta">
-                        <span>{company_name}</span><span>({start_date} - {end_date})</span>
+                    <div className="experience-card-meta">
+                        <span className="highlight-text">{company_name}</span>
+                        <span className="muted-text"> | {start_date} - {end_date}</span>
                     </div>
                     <ul>
                         {description.map((desc, index) => (
@@ -119,22 +114,23 @@ function Home(){
                         ))}
                     </ul>
                 </div>
-
             </div>
-
         )
     }
 
     const EducationCard = ({index, degree_name, university_name, university_logo, start_date, end_date, is_current, description})=>{
         return(
-            <div className = "education-card-container" key={`education-${index}`}>
-                <div className = "education-card-logo">
-                    <img src = {home_image_maps[university_logo]} alt = {university_name} />
+            <div className="glass-card education-card-container" key={`education-${index}`}>
+                <div className="education-card-logo">
+                    <div className="logo-wrapper">
+                        <img src={home_image_maps[university_logo]} alt={university_name} />
+                    </div>
                 </div>
-                <div className = "education-card-details">
+                <div className="education-card-details">
                     <h1>{degree_name.toUpperCase()}</h1>
-                    <div className = "education-card-meta">
-                        <span>{university_name}</span><span>({start_date} - {end_date}{is_current ? ", Expected":""})</span>
+                    <div className="education-card-meta">
+                        <span className="highlight-text">{university_name}</span>
+                        <span className="muted-text"> | {start_date} - {end_date}{is_current ? " (Expected)":""}</span>
                     </div>
                     <ul>
                         {description.map((desc, index) => (
@@ -142,33 +138,32 @@ function Home(){
                         ))}
                     </ul>
                 </div>
-
             </div>
         );
     }
 
     const ProjectCard = ({index, project_name, description, project_type, project_image, repository_link, product_link, tags}) =>{
         return(
-            <div className = "project-card-container" key={`project-${index}`}>
-                <div className = "project-card-image">
-                    <img src = {home_image_maps[project_image]} alt = {project_name} />
+            <div className="glass-card project-card-container" key={`project-${index}`}>
+                <div className="project-card-image">
+                    <img src={home_image_maps[project_image]} alt={project_name} />
                 </div>
-                <div className = "project-card-details">
-                    <div className = "project-card-description">
-                        <h4>{project_type}</h4>
+                <div className="project-card-details">
+                    <div className="project-card-description">
+                        <h4 className="gradient-text">{project_type}</h4>
                         <h1>{project_name.toUpperCase()}</h1>
-                        <div className = "project-card-meta">
-                            <span>Tags:</span> <span>{tags.join(", ")}</span>
+                        <div className="project-card-meta">
+                            <span className="tags-container">
+                                {tags.map((tag, i) => <span key={i} className="tech-tag">{tag}</span>)}
+                            </span>
                         </div>
                         <p>{description}</p>
                     </div>
                     
-                    
                     <div className="project-card-buttons">
-                        <a href={repository_link !== null ? repository_link : "#"} target="_blank" rel="noopener noreferrer" className={repository_link !== null? "link-avail" : "link-unavail"}>View Repository</a>
-                        <a href={product_link !== null ? product_link : "#"} target="_blank" rel="noopener noreferrer" className={product_link !== null? "link-avail" : "link-unavail"}>View Project</a>
+                        <a href={repository_link !== null ? repository_link : "#"} target="_blank" rel="noopener noreferrer" className={repository_link !== null? "btn-primary" : "btn-disabled"}>View Repository</a>
+                        <a href={product_link !== null ? product_link : "#"} target="_blank" rel="noopener noreferrer" className={product_link !== null? "btn-secondary" : "btn-disabled"}>View Project</a>
                     </div>
-
                 </div>
             </div>
         )
@@ -177,20 +172,19 @@ function Home(){
     const TestimonialCard = ({ index, testimonial, author, link }) => {
         return (
             <div className="testimonial-card" key={`testimonial-${index}`}>
-                <p className = "testimonial-text">"{testimonial}"</p>
-                <cite className = "testimonial-author">~ <a href={link} target="_blank" rel="noopener noreferrer">{author}</a></cite>
+                <p className="testimonial-text">"{testimonial}"</p>
+                <cite className="testimonial-author">&mdash; <a href={link} target="_blank" rel="noopener noreferrer">{author}</a></cite>
             </div>
         );
     };
 
     const ContactCard = ({index, contact_type, contact_display, contact_icon, contact_value})=>{
         return(
-            <div className = "contact-card" key = {`contact-${index}`}>
-                <a href = {contact_value} >
-                    <img src = {home_image_maps[contact_icon]} alt = {contact_type} />
+            <div className="contact-card" key={`contact-${index}`}>
+                <a href={contact_value} target="_blank" rel="noopener noreferrer">
+                    <img src={home_image_maps[contact_icon]} alt={contact_type} />
                     <span>{contact_display}</span>
                 </a>
-                
             </div>
         );
     }
@@ -199,11 +193,7 @@ function Home(){
         const autoScrollInterval = setInterval(() => {
             handleNext(); 
         }, 5000);
-
-        return () => {
-            clearInterval(autoScrollInterval);
-        };
-
+        return () => clearInterval(autoScrollInterval);
     }, [currentIndex, info.testimonials.length]);
 
     useEffect(() => {
@@ -211,182 +201,125 @@ function Home(){
     }, []);
 
     return(
-        <main id ="home">
+        <main id="home">
             <Navbar />
+            
             {/* Hero Section */}
-            <section className = "hero">
-                <article className = "hero-content">
-                    <div className = "hero-content-container"> 
-                        <h5 className = "section-subheading">{info.full_name == null ? "FULL NAME" : info.full_name.toUpperCase() }</h5>
-                        <h1 className = "section-heading">Welcome!</h1>
-                        <h1 className = "section-heading">I'm <span>{info.display_name == null ? "DISPLAY NAME" : info.display_name }</span></h1>
+            <section className="hero">
+                <div className="hero-background-glow"></div>
+                <article className="hero-content">
+                    <div className="hero-content-container"> 
+                        <h5 className="section-subheading glow-subtext">{info.full_name == null ? "FULL NAME" : info.full_name.toUpperCase() }</h5>
+                        <h1 className="section-heading">Hello, I'm <span className="gradient-text">{info.display_name == null ? "DISPLAY NAME" : info.display_name }</span></h1>
+                        <p className="hero-tagline">Building intelligent systems & scalable AI solutions.</p>
                     </div>
-                    <div className = "hero-button-container">
-                        <button className = "hero-content-container-button" onClick = {() => {window.location.href = info.contacts[1].contact_value}}>
-                            <span>Let's Connect</span>
+                    <div className="hero-button-container">
+                        <button className="btn-primary hero-btn" onClick={() => {window.location.href = info.contacts[1].contact_value}}>
+                            Let's Connect
                         </button>
                     </div>
                 </article>
             </section>
 
-            <hr />
-
             {/* Resume Summary */}
-            <section className = "section-container">
-                <h5 className = "section-subheading">ABOUT ME</h5>
-                <h2 className = "section-heading">My Resume</h2>
+            <section className="section-container">
+                <div className="section-header">
+                    <h5 className="section-subheading">BACKGROUND</h5>
+                    <h2 className="section-heading">My Experience</h2>
+                </div>
 
-                <article className = "resume-content">
-                    <div className = "resume-content-container">
-                        <ul className = "resume-content-options">
-                            <li className = {toggle === 1 ? "option-list-active" : "option-list-inactive"} onClick={()=>updateToggle(1)}>Experience</li>
-                            <li className = {toggle === 2 ? "option-list-active" : "option-list-inactive"} onClick={()=>updateToggle(2)}>Education</li>
-                        </ul>
-
-                        <div className = {toggle === 1 ? "resume-content-active" : "resume-content-inactive"}>
-                            {
-                                info.experiences.map((experience, index) => (
-                                    <ExperienceCard
-                                        key={index}
-                                        index={index}
-                                        job_title={experience.job_title}
-                                        company_name={experience.company_name}
-                                        company_logo={experience.company_logo}
-                                        start_date={experience.start_date}
-                                        end_date={experience.end_date}
-                                        description={experience.description}
-                                    />
-                                ))
-                            }
+                <article className="resume-content">
+                    <div className="resume-content-container">
+                        <div className="toggle-wrapper">
+                            <ul className="resume-content-options glass-pill">
+                                <li className={toggle === 1 ? "option-active" : "option-inactive"} onClick={()=>updateToggle(1)}>Experience</li>
+                                <li className={toggle === 2 ? "option-active" : "option-inactive"} onClick={()=>updateToggle(2)}>Education</li>
+                            </ul>
                         </div>
-                        <div className = {toggle === 2 ? "resume-content-active" : "resume-content-inactive"}>
 
-                            {
-                                info.educations.map((education, index) => (
-                                    <EducationCard
-                                        key={index}
-                                        index={index}
-                                        degree_name={education.degree_name}
-                                        university_name={education.university_name}
-                                        university_logo={education.university_logo}
-                                        start_date={education.start_date}
-                                        end_date={education.end_date}
-                                        is_current={education.is_current}
-                                        description={education.description}
-                                    />
-                                ))
-                            }
+                        <div className="card-stack">
+                            <div className={toggle === 1 ? "resume-content-active" : "resume-content-inactive"}>
+                                {info.experiences.map((experience, index) => (
+                                    <ExperienceCard key={index} index={index} {...experience} />
+                                ))}
+                            </div>
+                            <div className={toggle === 2 ? "resume-content-active" : "resume-content-inactive"}>
+                                {info.educations.map((education, index) => (
+                                    <EducationCard key={index} index={index} {...education} />
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </article>
             </section>
 
-            <hr/>
-
             {/* Project */}
-            <section className = 'section-container'>
-                <h5 className = "section-subheading">CHECK OUT MY PROJECTS</h5>
-                <h2 className = "section-heading">My Projects</h2>
-
-                <article className = "project-content">
-                    {
-                        info.projects.slice(0,3).map((project, index) => (
-                            <ProjectCard
-                                key={index}
-                                index={index}
-                                project_name={project.project_name}
-                                description={project.description}
-                                project_type={project.project_type}
-                                project_image={project.project_image}
-                                repository_link={project.repository_link}
-                                product_link={project.product_link}
-                                tags={project.tags}
-                            />
-                        ))
-                    }
-                </article>
-
-                <div className = "project-load-more-container">
-                    <button className = "project-load-more-button" onClick={()=>navigate("/projects")}>View More Projects</button>
+            <section className='section-container project-section'>
+                <div className="section-header">
+                    <h5 className="section-subheading">PORTFOLIO</h5>
+                    <h2 className="section-heading">Featured Projects</h2>
                 </div>
 
-            </section>
+                <article className="project-content">
+                    {info.projects.slice(0,3).map((project, index) => (
+                        <ProjectCard key={index} index={index} {...project} />
+                    ))}
+                </article>
 
-            <hr />
+                <div className="project-load-more-container">
+                    <button className="btn-secondary load-more-btn" onClick={()=>navigate("/projects")}>View All Projects</button>
+                </div>
+            </section>
 
             {/* Testimonials */}
             <section className="section-container">
-                <h5 className="section-subheading">WHAT PEOPLE SAY</h5>
-                <h2 className="section-heading">Testimonials</h2>
+                <div className="section-header">
+                    <h5 className="section-subheading">ENDORSEMENTS</h5>
+                    <h2 className="section-heading">What People Say</h2>
+                </div>
 
-                <article id="testimonial-carousel" className="carousel-wrapper">
+                <article id="testimonial-carousel" className="carousel-wrapper glass-card">
                     <div className="carousel-container">
-                        <div className = "carousel-slider" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
-                            {
-                                info.testimonials.map((testimonial, index) => (
-                                    <div style={{ flex: '0 0 100%' }} key={index}>
-                                        <TestimonialCard
-                                            index={index}
-                                            testimonial={testimonial.testimonial}
-                                            author={testimonial.author}
-                                            link={testimonial.link}
-                                        />
-                                    </div>
-                                ))
-                            }
+                        <div className="carousel-slider" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+                            {info.testimonials.map((testimonial, index) => (
+                                <div style={{ flex: '0 0 100%' }} key={index}>
+                                    <TestimonialCard index={index} {...testimonial} />
+                                </div>
+                            ))}
                         </div>
                     </div>
 
-                    <button className="carousel-btn left" onClick={handlePrev}>
-                        &#10094;
-                    </button>
-                    <button className="carousel-btn right" onClick={handleNext}>
-                        &#10095;
-                    </button>
+                    <button className="carousel-btn left" onClick={handlePrev}>&#10094;</button>
+                    <button className="carousel-btn right" onClick={handleNext}>&#10095;</button>
 
                     <div className="dots-container">
-                        {
-                            info.testimonials.map((_, index) => (
-                                <button
-                                    key={index}
-                                    className={currentIndex === index ? "dot active" : "dot"}
-                                    aria-label={`Go to testimonial ${index + 1}`}
-                                    onClick={() => setCurrentIndex(index)}
-                                />
-                            ))
-                        }
+                        {info.testimonials.map((_, index) => (
+                            <button
+                                key={index}
+                                className={currentIndex === index ? "dot active" : "dot"}
+                                aria-label={`Go to testimonial ${index + 1}`}
+                                onClick={() => setCurrentIndex(index)}
+                            />
+                        ))}
                     </div>
-
                 </article>
-
             </section>
 
             {/* Footer / Contact */}
-            <section className = "section-container">
-                <h1>{info.full_name === null ? "FULL NAME" : info.full_name}</h1>
-                <h4>Let's Connect!</h4>
-
-                 <div className = "contact-container">
-                    {
-                        info.contacts.slice(1, 3).map((contact, index) => (
-                            <ContactCard
-                                key={index}
-                                index={index}
-                                contact_type={contact.contact_type}
-                                contact_display={contact.contact_display}
-                                contact_icon={contact.contact_icon}
-                                contact_value={contact.contact_value}
-                            />
-                        ))
-                    }
+            <section className="footer-container">
+                <div className="footer-content">
+                    <h1 className="gradient-text">{info.full_name === null ? "FULL NAME" : info.full_name}</h1>
+                    <h4>Let's build something great together.</h4>
+                    <div className="contact-container">
+                        {info.contacts.slice(1, 3).map((contact, index) => (
+                            <ContactCard key={index} index={index} {...contact} />
+                        ))}
+                    </div>
                 </div>
                 <footer>
                     <span>&copy; {new Date().getFullYear()} {info.full_name === null ? "" : `${info.full_name}.`} All rights reserved.</span>
                 </footer>
-
             </section>
-
-            
         </main>
     );
 }
