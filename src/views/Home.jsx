@@ -211,7 +211,7 @@ function Home(){
                     <div className="hero-content-container"> 
                         <h5 className="section-subheading glow-subtext">{info.full_name == null ? "FULL NAME" : info.full_name.toUpperCase() }</h5>
                         <h1 className="section-heading">Hello, I'm <span className="gradient-text">{info.display_name == null ? "DISPLAY NAME" : info.display_name }</span></h1>
-                        <p className="hero-tagline">Building intelligent systems & scalable AI solutions.</p>
+                        <p className="hero-tagline">Building intelligent systems & scalable AI software solutions.</p>
                     </div>
                     <div className="hero-button-container">
                         <button className="btn-primary hero-btn" onClick={() => {window.location.href = info.contacts[1].contact_value}}>
