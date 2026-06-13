@@ -2,13 +2,12 @@ import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import { toast } from "react-toastify";
 
-import loading_bar from '../media/loading_bar.gif'
-import axios from 'axios';
+import loading_bar from '../media/loading_bar.gif';
 import DOMPurify from "dompurify";
-import json_obj from '../media/input.json'
-import urls from '../media/urls.json'
+import json_obj from '../media/input.json';
+import urls from '../media/urls.json';
 
-import './styles/Chat.css'
+import './styles/Chat.css';
 
 function Chat() {
     const [history, setHistory] = useState([]);
@@ -43,35 +42,81 @@ function Chat() {
             const assistant_obj = {
                 'role': 'assistant',
                 'content': null
-            }
+            };
 
             setIsGenerating(true);
             setPrompt('');
             
             setHistory(prevHistory => [...prevHistory, prompt_obj, assistant_obj]);
 
-            let res = await axios.post(urls.api_endpoint,
-                {
-                    history: [...history, prompt_obj, assistant_obj]
-                }
-            );
-
-            setHistory(prevHistory => {
-                const updatedHistory = [...prevHistory];
-                updatedHistory[updatedHistory.length - 1].content = res.data.message;
-                return updatedHistory;
+            // handle chat stream
+            const response = await fetch(urls.api_endpoint_test, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    history: [...history, prompt_obj]
+                })
             });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            if (!response.body) {
+                throw new Error('ReadableStream not supported.');
+            }
+
+            // Set up the stream reader
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder('utf-8');
+            let done = false;
+
+            // Loop continuously as data chunks arrive from the Express backend
+            while (!done) {
+                const { value, done: readerDone } = await reader.read();
+                done = readerDone;
+                
+                if (value) {
+                    // Decode the raw bytes into a string (the word/token)
+                    const chunk = decoder.decode(value, { stream: true });
+                    
+                    // Update the state incrementally to create the typewriter effect
+                    setHistory(prevHistory => {
+                        // 1. Shallow copy the array
+                        const newHistory = [...prevHistory];
+                        const lastIndex = newHistory.length - 1;
+                        
+                        // 2. Create Neew object for the last message
+                        const updatedMessage = { ...newHistory[lastIndex] };
+                        
+                        // 3. Update the content on the new object
+                        if (updatedMessage.content === null) {
+                            updatedMessage.content = chunk;
+                        } else {
+                            updatedMessage.content += chunk;
+                        }
+                        
+                        // 4. Replace the old object with the new one in the array
+                        newHistory[lastIndex] = updatedMessage;
+                        
+                        return newHistory;
+                    });
+                }
+            }
 
             setIsGenerating(false);
 
         } catch (e) {
+            console.error(e);
             setHistory(prevHistory => {
                 const updatedHistory = [...prevHistory];
                 updatedHistory[updatedHistory.length - 1].content = `Sorry, it seems that you have encountered a technical issue. Please e-mail to ${json_obj.contacts[0].contact_display} if you have any questions.`;
                 return updatedHistory;
             });
             setIsGenerating(false);
-            toast.error('Oops! An error occurred: ' + e.message);
+            toast.error('Oops! An error occurred.');
         }
     }
 
@@ -96,7 +141,7 @@ function Chat() {
                 {
                     chatHistory.role === 'assistant' ?
                         (
-                            chatHistory.content == null ?
+                            chatHistory.content === null ?
                                 <div className='pg-chat-assistant-container pg-chat-glass'>
                                     <img src={loading_bar} alt="Loading..." className="pg-chat-loading-icon" />
                                 </div>
