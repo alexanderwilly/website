@@ -50,7 +50,7 @@ function Chat() {
             setHistory(prevHistory => [...prevHistory, prompt_obj, assistant_obj]);
 
             // handle chat stream
-            const response = await fetch(urls.api_endpoint_test, {
+            const response = await fetch(urls.api_endpoint, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
