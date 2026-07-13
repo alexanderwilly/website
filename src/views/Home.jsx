@@ -271,7 +271,7 @@ function Home(){
                 </div>
             </section>
 
-            {/* Testimonials */}
+            {/* Testimonials
             <section className="section-container">
                 <div className="section-header">
                     <h5 className="section-subheading">ENDORSEMENTS</h5>
@@ -303,7 +303,7 @@ function Home(){
                         ))}
                     </div>
                 </article>
-            </section>
+            </section> */}
 
             {/* Footer / Contact */}
             <section className="footer-container">
