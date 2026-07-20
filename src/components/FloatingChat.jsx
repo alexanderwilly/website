@@ -13,7 +13,7 @@ function FloatingChat() {
     const [history, setHistory] = useState([
         {
             role: 'assistant',
-            content: "Hey, I'm here to answer questions about my work. If you're a recruiter, founder, or engineer, tap one of the prompts and I'll take it from there."
+            content: "Hey, I'm Alexander's AI Assistant. I'm here to help you learn about Alexander's background, skills, and experience. How can I help you today?"
         }
     ]);
     const [prompt, setPrompt] = useState('');
@@ -109,7 +109,7 @@ function FloatingChat() {
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
                             </div>
                             <div className="fc-title-group">
-                                <h3 className="fc-title">{json_obj.display_name.split(' ')[0]}'s AI Agent <span className="fc-status-dot"></span></h3>
+                                <h3 className="fc-title">{json_obj.display_name.split(' ')[0]}'s AI Assistant <span className="fc-status-dot"></span></h3>
                                 <p className="fc-status-text">Online</p>
                             </div>
                         </div>
@@ -125,7 +125,7 @@ function FloatingChat() {
                                     {msg.role === 'assistant' ? (
                                         <>
                                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                                            <span>{json_obj.display_name.split(' ')[0]}'s AI Agent</span>
+                                            <span>{json_obj.display_name.split(' ')[0]}'s AI Assistant</span>
                                         </>
                                     ) : (
                                         <span>You</span>
@@ -144,21 +144,13 @@ function FloatingChat() {
                                 </div>
                             </div>
                         ))}
-
-                        {history.length === 1 && !isGenerating && (
-                            <div className="fc-prompts">
-                                <button onClick={() => submitPrompt("I'm a recruiter")}>I'm a recruiter</button>
-                                <button onClick={() => submitPrompt("I'm a founder")}>I'm a founder</button>
-                                <button onClick={() => submitPrompt("I'm an engineer")}>I'm an engineer</button>
-                            </div>
-                        )}
                         <div ref={messagesEndRef} />
                     </div>
 
                     <div className="fc-footer">
                         <input
                             type="text"
-                            placeholder="Ask about my background, projects, or skills..."
+                            placeholder="Ask about my background, skills, and experience..."
                             value={prompt}
                             onChange={(e) => setPrompt(e.target.value)}
                             onKeyDown={handleKeyPress}
