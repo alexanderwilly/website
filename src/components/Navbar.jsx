@@ -9,7 +9,7 @@ import './styles/Navbar.css';
 
 function Navbar() {
     const navigate = useNavigate();
-    
+
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     const toggleSidebar = () => {
@@ -28,14 +28,12 @@ function Navbar() {
                 </li>
                 <li className="sidebar-link"><Link to="/" onClick={toggleSidebar}>HOME</Link></li>
                 <li className="sidebar-link"><Link to="/projects" onClick={toggleSidebar}>PROJECTS</Link></li>
-                <li className="sidebar-link"><Link to="/chat" onClick={toggleSidebar}>CHATBOT</Link></li>
                 <li className="sidebar-link"><Link to="/contact" onClick={toggleSidebar}>CONTACT</Link></li>
             </ul>
 
             <ul className="top-nav">
                 <li className="top-nav-link"><Link to="/">HOME</Link></li>
                 <li className="top-nav-link"><Link to="/projects">PROJECTS</Link></li>
-                <li className="top-nav-link"><Link to="/chat">CHATBOT</Link></li>
                 <li className="top-nav-link"><Link to="/contact">CONTACT</Link></li>
 
                 <li id="bars-icon" className="bars-icon">

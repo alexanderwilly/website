@@ -1,26 +1,25 @@
-
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { toast, ToastContainer, Slide} from 'react-toastify';
+import { toast, ToastContainer, Slide } from 'react-toastify';
 import Home from './views/Home';
 import Projects from './views/Projects';
 import Contact from './views/Contact';
-import Chat from './views/Chat'
+import FloatingChat from './components/FloatingChat';
 
-import './App.css'; 
+import './App.css';
 import 'react-toastify/dist/ReactToastify.css';
 
-function App(){
+function App() {
 
 
-  return(
+  return (
     <div className='container'>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/projects' element={<Projects />} />
-        <Route path ='/chat' element={<Chat/>}/>
         <Route path='/contact' element={<Contact />} />
       </Routes>
+      <FloatingChat />
       <ToastContainer />
       {/* <ToastContainer 
         position="bottom-center"
