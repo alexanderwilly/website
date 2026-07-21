@@ -150,7 +150,7 @@ function Home() {
                 </div>
                 <div className="project-card-details">
                     <div className="project-card-description">
-                        <h4 className="gradient-text">{project_type}</h4>
+                        <h4>{project_type}</h4>
                         <h1>{project_name.toUpperCase()}</h1>
                         <div className="project-card-meta">
                             <span className="tags-container">

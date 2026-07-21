@@ -370,6 +370,10 @@
   margin: 8px 0 16px 0;
 }
 
+.project-card-description h4 {
+  color: var(--accent-primary);
+}
+
 .tags-container {
   display: flex;
   flex-wrap: wrap;

@@ -17,7 +17,7 @@
 }
 
 .pg-contact-gradient-text {
-    background: linear-gradient(to right, var(--accent-primary, #38bdf8), var(--accent-secondary, #818cf8));
+    background: var(--accent-primary, #38bdf8);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -59,8 +59,15 @@
 }
 
 @keyframes slide_up {
-    0% { transform: translateY(30px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 /* --- Typography --- */
@@ -148,7 +155,7 @@
 .pg-contact-card img {
     width: 40px;
     height: 40px;
-    filter: brightness(0) invert(1); 
+    filter: brightness(0) invert(1);
     transition: transform 0.3s ease;
 }
 
