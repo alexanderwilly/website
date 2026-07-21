@@ -84,7 +84,7 @@ function Projects() {
     return (
         <main id="pg-projects-main">
             <Navbar />
-            
+
             <section className="pg-proj-hero">
                 <h1 className="pg-proj-section-heading">Project Showcase</h1>
                 <p className="pg-proj-text-muted">Explore my latest work, experiments, and open-source contributions.</p>

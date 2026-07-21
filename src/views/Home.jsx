@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from "react";
-import {Link, useNavigate} from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 import Navbar from "../components/Navbar";
 
@@ -30,7 +30,7 @@ import info from "../media/input.json"
 
 import './styles/Home.css';
 
-function Home(){
+function Home() {
     const navigate = useNavigate();
     const [toggle, setToggle] = useState(1);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -42,16 +42,16 @@ function Home(){
             setTimeout(() => {
                 activeContent.classList.remove("fade-out");
                 setToggle(value);
-            }, 300); 
+            }, 300);
         } else {
             setToggle(value);
         }
     }
 
-    const showTestimonial = (index)=>{
+    const showTestimonial = (index) => {
         if (index >= info.testimonials.length) {
             index = 0;
-        } else if (index < 0){
+        } else if (index < 0) {
             index = info.testimonials.length - 1;
         }
         setCurrentIndex(index);
@@ -69,33 +69,33 @@ function Home(){
 
     const home_image_maps = {
         // experience logo
-        "cogoport_logo":cogoport_logo,
-        "pt__trees_solutions_logo":pt__treessolutions_logo,
+        "cogoport_logo": cogoport_logo,
+        "pt__trees_solutions_logo": pt__treessolutions_logo,
         "wellknown_logo": wellknown_logo,
 
         // education logo
-        "smu_logo":smu_logo,
-        "uow_logo":uow_logo,
-        "simge_logo":simge_logo,
+        "smu_logo": smu_logo,
+        "uow_logo": uow_logo,
+        "simge_logo": simge_logo,
 
         // project images
-        "finance_chatbot":finance_chatbot,
-        "sciqa":sciqa,
-        "beat_churn_with_ml":beat_churn_with_ml,
-        "portfolio_2":portfolio_2,
-        "petheaven":petheaven,
-        "activeaxis":activeaxis,
-        "portfolio":portfolio,
-        "cafe":cafe,
+        "finance_chatbot": finance_chatbot,
+        "sciqa": sciqa,
+        "beat_churn_with_ml": beat_churn_with_ml,
+        "portfolio_2": portfolio_2,
+        "petheaven": petheaven,
+        "activeaxis": activeaxis,
+        "portfolio": portfolio,
+        "cafe": cafe,
 
         // contact icons
-        "github_icon":github_icon,
-        "linkedin_icon":linkedin_icon,
-        "mail_icon":mail_icon
+        "github_icon": github_icon,
+        "linkedin_icon": linkedin_icon,
+        "mail_icon": mail_icon
     }
 
-    const ExperienceCard = ({index, job_title, company_name, company_logo, start_date, end_date, description}) =>{
-        return(
+    const ExperienceCard = ({ index, job_title, company_name, company_logo, start_date, end_date, description }) => {
+        return (
             <div className="glass-card experience-card-container" key={`experience-${index}`}>
                 <div className="experience-card-logo">
                     <div className="logo-wrapper">
@@ -118,8 +118,8 @@ function Home(){
         )
     }
 
-    const EducationCard = ({index, degree_name, university_name, university_logo, start_date, end_date, is_current, description})=>{
-        return(
+    const EducationCard = ({ index, degree_name, university_name, university_logo, start_date, end_date, is_current, description }) => {
+        return (
             <div className="glass-card education-card-container" key={`education-${index}`}>
                 <div className="education-card-logo">
                     <div className="logo-wrapper">
@@ -130,7 +130,7 @@ function Home(){
                     <h1>{degree_name.toUpperCase()}</h1>
                     <div className="education-card-meta">
                         <span className="highlight-text">{university_name}</span>
-                        <span className="muted-text"> | {start_date} - {end_date}{is_current ? " (Expected)":""}</span>
+                        <span className="muted-text"> | {start_date} - {end_date}{is_current ? " (Expected)" : ""}</span>
                     </div>
                     <ul>
                         {description.map((desc, index) => (
@@ -142,8 +142,8 @@ function Home(){
         );
     }
 
-    const ProjectCard = ({index, project_name, description, project_type, project_image, repository_link, product_link, tags}) =>{
-        return(
+    const ProjectCard = ({ index, project_name, description, project_type, project_image, repository_link, product_link, tags }) => {
+        return (
             <div className="glass-card project-card-container" key={`project-${index}`}>
                 <div className="project-card-image">
                     <img src={home_image_maps[project_image]} alt={project_name} />
@@ -159,10 +159,10 @@ function Home(){
                         </div>
                         <p>{description}</p>
                     </div>
-                    
+
                     <div className="project-card-buttons">
-                        <a href={repository_link !== null ? repository_link : "#"} target="_blank" rel="noopener noreferrer" className={repository_link !== null? "btn-primary" : "btn-disabled"}>View Repository</a>
-                        <a href={product_link !== null ? product_link : "#"} target="_blank" rel="noopener noreferrer" className={product_link !== null? "btn-secondary" : "btn-disabled"}>View Project</a>
+                        <a href={repository_link !== null ? repository_link : "#"} target="_blank" rel="noopener noreferrer" className={repository_link !== null ? "btn-primary" : "btn-disabled"}>View Repository</a>
+                        <a href={product_link !== null ? product_link : "#"} target="_blank" rel="noopener noreferrer" className={product_link !== null ? "btn-secondary" : "btn-disabled"}>View Project</a>
                     </div>
                 </div>
             </div>
@@ -178,8 +178,8 @@ function Home(){
         );
     };
 
-    const ContactCard = ({index, contact_type, contact_display, contact_icon, contact_value})=>{
-        return(
+    const ContactCard = ({ index, contact_type, contact_display, contact_icon, contact_value }) => {
+        return (
             <div className="contact-card" key={`contact-${index}`}>
                 <a href={contact_value} target="_blank" rel="noopener noreferrer">
                     <img src={home_image_maps[contact_icon]} alt={contact_type} />
@@ -191,7 +191,7 @@ function Home(){
 
     useEffect(() => {
         const autoScrollInterval = setInterval(() => {
-            handleNext(); 
+            handleNext();
         }, 5000);
         return () => clearInterval(autoScrollInterval);
     }, [currentIndex, info.testimonials.length]);
@@ -200,21 +200,21 @@ function Home(){
         window.scrollTo(0, 0);
     }, []);
 
-    return(
+    return (
         <main id="home">
             <Navbar />
-            
+
             {/* Hero Section */}
             <section className="hero">
                 <div className="hero-background-glow"></div>
                 <article className="hero-content">
-                    <div className="hero-content-container"> 
-                        <h5 className="section-subheading glow-subtext">{info.full_name == null ? "FULL NAME" : info.full_name.toUpperCase() }</h5>
-                        <h1 className="section-heading">Hello, I'm <span className="gradient-text">{info.display_name == null ? "DISPLAY NAME" : info.display_name }</span></h1>
+                    <div className="hero-content-container">
+                        <h5 className="section-subheading glow-subtext">{info.full_name == null ? "FULL NAME" : info.full_name.toUpperCase()}</h5>
+                        <h1 className="section-heading">Hello, I'm <span className="gradient-text">{info.display_name == null ? "DISPLAY NAME" : info.display_name}</span></h1>
                         <p className="hero-tagline">Building intelligent systems & scalable AI software solutions.</p>
                     </div>
                     <div className="hero-button-container">
-                        <button className="btn-primary hero-btn" onClick={() => {window.location.href = info.contacts[1].contact_value}}>
+                        <button className="btn-primary hero-btn" onClick={() => { window.location.href = info.contacts[1].contact_value }}>
                             Let's Connect
                         </button>
                     </div>
@@ -232,8 +232,8 @@ function Home(){
                     <div className="resume-content-container">
                         <div className="toggle-wrapper">
                             <ul className="resume-content-options glass-pill">
-                                <li className={toggle === 1 ? "option-active" : "option-inactive"} onClick={()=>updateToggle(1)}>Experience</li>
-                                <li className={toggle === 2 ? "option-active" : "option-inactive"} onClick={()=>updateToggle(2)}>Education</li>
+                                <li className={toggle === 1 ? "option-active" : "option-inactive"} onClick={() => updateToggle(1)}>Experience</li>
+                                <li className={toggle === 2 ? "option-active" : "option-inactive"} onClick={() => updateToggle(2)}>Education</li>
                             </ul>
                         </div>
 
@@ -261,13 +261,13 @@ function Home(){
                 </div>
 
                 <article className="project-content">
-                    {info.projects.slice(0,3).map((project, index) => (
+                    {info.projects.slice(0, 3).map((project, index) => (
                         <ProjectCard key={index} index={index} {...project} />
                     ))}
                 </article>
 
                 <div className="project-load-more-container">
-                    <button className="btn-secondary load-more-btn" onClick={()=>navigate("/projects")}>View All Projects</button>
+                    <button className="btn-secondary load-more-btn" onClick={() => navigate("/projects")}>View All Projects</button>
                 </div>
             </section>
 
@@ -308,7 +308,7 @@ function Home(){
             {/* Footer / Contact */}
             <section className="footer-container">
                 <div className="footer-content">
-                    <h1 className="gradient-text">{info.full_name === null ? "FULL NAME" : info.full_name}</h1>
+                    <h1>{info.full_name === null ? "FULL NAME" : info.full_name}</h1>
                     <h4>Let's build something great together.</h4>
                     <div className="contact-container">
                         {info.contacts.slice(1, 3).map((contact, index) => (
