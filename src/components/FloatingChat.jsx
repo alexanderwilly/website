@@ -46,7 +46,7 @@ function FloatingChat() {
         setHistory([...newHistory, assistant_obj]);
 
         try {
-            // Need to filter out the initial prompt if it wasn't there before
+            // filter out the initial prompt
             const apiHistory = newHistory.slice(1);
 
             const response = await fetch(urls.api_endpoint, {

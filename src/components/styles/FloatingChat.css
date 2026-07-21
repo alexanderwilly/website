@@ -7,7 +7,7 @@
 }
 
 .floating-chat-bubble {
-    background: linear-gradient(135deg, var(--accent-primary, #38bdf8), var(--accent-secondary, #818cf8));
+    background: var(--accent-primary, #38bdf8);
     color: #fff;
     border: none;
     border-radius: 30px;
@@ -24,7 +24,7 @@
 
 .floating-chat-bubble:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(129, 140, 248, 0.6);
+    box-shadow: 0 6px 20px var(--accent-glow, rgba(56, 189, 248, 0.4));
 }
 
 .floating-chat-window {
@@ -266,6 +266,7 @@
         bottom: 80px;
         right: 16px;
     }
+
     .floating-chat-wrapper {
         bottom: 16px;
         right: 16px;
@@ -278,10 +279,12 @@
         bottom: 70px;
         right: 10px;
     }
+
     .floating-chat-wrapper {
         bottom: 10px;
         right: 10px;
     }
+
     .floating-chat-bubble {
         padding: 12px 20px;
         font-size: 14px;
